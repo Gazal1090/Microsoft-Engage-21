@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>MS Classroom</title>
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Rubik:400,700'><link rel="stylesheet" href="../css/login.css">
+  <link rel="stylesheet" href="../css/app.css">
+
+  <style>
+     body {
+        background: url("../images/students.png") no-repeat;
+        background-size: cover
+}
+  </style>
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div>
+<nav class="navbar">
+  <div class="max-width">
+      <div class="logo"><a href="#">MS Class<span>room</span></a></div>
+      <ul class="menu">
+            <li><a href="/home" class="menu-btn">Home</a></li>
+            <li><a href="/registerStudent" class="menu-btn">Register</a></li>
+            <li><a href="/login" class="menu-btn">Login</a></li>
+            <li><a href="/home/#contact" class="menu-btn">Contact</a></li>
+      </ul>
+      <div class="menu-btn">
+          <i class="fas fa-bars"></i>
+      </div>
+  </div>
+</nav>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="login-form" style="margin-top: 0;">
+  <form action="/login" method = "post" style="margin-top: 100;">
+    <h1>Login</h1>
+    <div class="content">
+      <div class="input-field">
+        <input type="email" name = "email" placeholder="Email" autocomplete="nope" required>
+      </div>
+      <div class="input-field">
+        <input type="password"name = "password" placeholder="Password" autocomplete="new-password" required>
+      </div>
+      <a href="#" class="link">Forgot Your Password?</a>
+    </div>
+    <div class="action">
+      <button style = " background-color: rgb(38, 38, 94); ;"  type="submit">Log In</button>
+      <button  onclick="href='/registerStudent'" >Register</button>
+    </div>
+  </form>
+</div>
+</div>
+<!-- partial -->
+  <script  src="../js/login.js"></script>
+
+</body>
+</html>
