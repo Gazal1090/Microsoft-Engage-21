@@ -1,6 +1,6 @@
 # Microsoft-Engage-21
 
-## MSClassRoom 
+## MSClassroom 
 
 - *NodeJS* using Express framework with *MongoDB* 
 
