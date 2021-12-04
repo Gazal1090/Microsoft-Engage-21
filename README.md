@@ -53,12 +53,13 @@ Server started on port 3000!!!
 -   Different Signup and Login for Teachers and Students, to prevent ghosting
 -   Password encryption at database
 -   Personalized Dashboard for Students and Teachers
--   Teachers can create and view groups 
+-   Teachers can create and view classes
 -   This tool is used to reserve seats for online/ offline classes
 -   Teacher can view the slected seats in a group and can also view the list of studens against the seact number.
--   Students can join the groups.
--   For joining the group Students will have to enroll to a course.
--   Enrollment requests are handled by teacher who can either accept or reject these requests
+-   Students can join the classes.
+-   For joining the class Students will have to enroll to a course.
+-   Enrollment requests are handled by teacher who can either accept or reject these requests.
 -   After joining the group, the students can book their seats and view the posts.
--   Each student can book only one seat in a group
--   Change password functionality is implemented for both students and teachers
+-   Students can also choose to attend the class online.
+-   Each student can book only one seat in a class.
+-   Change password functionality is implemented for both students and teachers.
