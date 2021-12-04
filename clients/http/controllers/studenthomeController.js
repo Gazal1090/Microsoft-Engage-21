@@ -282,7 +282,6 @@ function homeController(){
          async accept( req, res){
              const className = req.params.className
              const user = req.params.createdBy
-             const userr = User.findById(user)
              //sendEmail( userr.email, className, "accepted")
              const enrollment = await Enroll.findOne({className: className}, {createdBy : user})
              enrollment.status = '2'

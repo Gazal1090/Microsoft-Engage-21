@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>MS Classroom</title>
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Rubik:400,700'><link rel="stylesheet" href="../css/login.css">
+  <link rel="stylesheet" href="../css/app.css">
+  <style>
+    body {
+        background: rgba(0, 0, 0, 0.24);
+        background-size: cover
+}
+</style>
+<script>$(document).ready(function () {
+    $("#test").CreateMultiCheckBox({ width: '230px',
+               defaultText : 'Select Below', height:'250px' });
+  });</script>
+</head>
+<body style = "background:url(../images/classs.jpg); background-size: cover;">
+  <%- include('../partials/proffnav') %>
+<div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="login-form" style="margin-top: 0;">
+  <form action="/addclass" method="post" onsubmit="return confirm('Are you sure you want to submit?')"  style="margin-top: 100;">
+    <h1> Add new Class </h1>
+    <div class="content">
+      <div class="input-field">
+        <input type="text" name="className" placeholder=" Class Name" autocomplete="nope" required>
+      </div>
+      <div class="input-field">
+        <input type="number" name="limit" placeholder=" Class Limit" autocomplete="nope" required>
+      </div>
+    </div>
+    <div class="action">
+      <button type="Submit" style="background:rgb(13, 13, 31)">Submit</button>
+    </div>
+  </form>
+</div>
+</div>
+<!-- partial -->
+<!---  <script  src="../js/login.js"></script> -->
+<script  src="../js/class.js"></script>
+</body>
+</html>

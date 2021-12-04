@@ -1,0 +1,873 @@
+
+<style>
+    * {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    font-family: 'Ubuntu', sans-serif;
+    text-transform: capitalize;
+    -webkit-transition: all .2s linear;
+    transition: all .2s linear;
+  }
+  
+  html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    overflow-x: hidden;
+  }
+#header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    padding: 2rem 4rem;
+    z-index: 1000;
+  }
+  
+  #header .fa-hamburger {
+    font-size: 4rem;
+    z-index: 10000;
+    color: #f82249;
+    cursor: pointer;
+    display: none;
+  }
+  
+  #header .logo img {
+    height: 5rem;
+  }
+  
+  #header nav ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    list-style: none;
+  }
+  
+  #header nav ul li {
+    margin-right: 4rem;
+  }
+  
+  #header nav ul li a {
+    color: #fff;
+    font-size: 2rem;
+    text-decoration: none;
+  }
+  
+  #header nav ul li a:hover {
+    color: #f82249;
+    text-decoration: none;
+  }
+  
+  #header {
+    background: #333;
+    height: 6rem;
+    -webkit-box-shadow: .2rem 0 .5rem #000;
+            box-shadow: .2rem 0 .5rem #000;
+  }
+  
+  #header nav ul {
+    margin: 0;
+  }
+</style>
+
+<style>
+  /* for form styling*/
+  * { 
+margin: 0; 
+padding: 0;  
+}
+
+body { 
+background-image: url(/images/bg-hotel3.jpg);
+background-position: center; 
+background-size: cover; 
+font-family: 'Ubuntu', sans-serif;
+}
+
+.loginlabel { 
+width: 800px; 
+background-color:rgb(0,0,0,0.8);
+margin: auto;
+color: #ffffff;
+padding: 90px 0px 10px 0px; 
+text-align: center;
+border-radius: 15px 15px 0px 0px;
+}
+
+.main { 
+background-color: rgb(0,0,0,0.6);
+width: 800px; 
+margin: auto;
+}
+
+form { 
+padding:10px; 
+}
+
+
+.labels { 
+margin-left: 25px;
+margin-top: 30px; 
+width: 125px;
+color: white;
+font-size: 18px;
+font-weight: 700;
+}
+
+.inputfield{ 
+position: relative;
+left: 200px;
+top: -37px;
+line-height: 40px;
+width: 480px;
+border-radius: 6px;
+padding: 0 22px; 
+font-size: 16px;
+color: #555;
+}
+
+
+.button { 
+  position: center;
+/* background-color: #3BAF9F;*/
+  background-color: darkred;
+display: block;
+margin: 30px 20px 20px 220px;
+text-align: center;
+font-size: 20px; 
+border-radius: 12px;
+border: 2px solid #366473;
+padding: 14px 110px;
+outline: none;
+color: white;
+cursor: pointer;
+transition: 0.25px;
+}
+
+.button:hover { 
+background-color: #ddd;
+color: black;
+}
+.dropbtn {
+background-color: transparent;
+color: white;
+cursor: pointer;
+}
+        
+.dropdown-content {
+display: none;
+position: absolute;
+background-color: #110f0f;
+min-width: 160px;
+box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+        
+.dropdown-content a {
+color: black;
+padding: 12px 16px;
+display: block;
+}
+        
+.dropdown-content a:hover {
+background-color: #f1f1f1
+}
+        
+.dropdown:hover .dropdown-content {
+display: block;
+}
+        
+.dropdown:hover .dropbtn {
+background-color:transparent;
+}
+ span{
+    color: crimson;
+    font-weight: 500;
+}
+
+</style>
+<header id="header" style="font-family:'Ubuntu', sans-serif;">
+       <b style="color: white; font-size: 3rem;"><span style="font-weight: bold;"><%= classes.className %></span></b> </a>
+
+    <nav>
+        <ul>
+            <li><a href="/studentHome">Home</a></li>
+            <li><a href="/displayClass/<%= classes.className %>">Book seat</a></li>
+            <li><a href="/addPost/<%= classes.className %>">Add Post</a></li>
+            <li><a href="/myPost/<%= classes.className %>">My Posts</a></li>
+            <li><a href="/peers/<%= classes.className %>">People</a></li>
+            <li onclick="return confirm('Are you sure you want to leave?')"><a href="/leave/<%= classes.className %>">Leave Class</a></li>
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+      </nav>
+    
+    <div class="fas fa-hamburger"></div>
+    
+    
+</header>
+    
+<script>
+
+    $(document).ready(function(){
+    
+        $('.fa-hamburger').click(function(){
+            $(this).toggleClass('fa-times');
+            $('nav').toggleClass('nav-toggle');
+        });
+    
+        $('nav ul li a').click(function(){
+            $('.fa-hamburger').removeClass('fa-times');
+            $('nav').removeClass('nav-toggle');
+        });
+
+        
+    });
+    
+    </script>
+    
+    <style>
+      * {
+      margin: 0;
+      padding: 0;
+      -webkit-box-sizing: border-box;
+              box-sizing: border-box;
+      font-family: 'Exo 2', sans-serif;
+      text-transform: capitalize;
+      -webkit-transition: all .2s linear;
+      transition: all .2s linear;
+    }
+    
+    html {
+      font-size: 62.5%;
+      scroll-behavior: smooth;
+    }
+    
+    body {
+      overflow-x: hidden;
+    }
+  #header {
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center;
+      -webkit-box-pack: justify;
+          -ms-flex-pack: justify;
+              justify-content: space-between;
+      padding: 2rem 4rem;
+      z-index: 1000;
+    }
+    
+    #header .fa-hamburger {
+      font-size: 4rem;
+      z-index: 10000;
+      color: #f82249;
+      cursor: pointer;
+      display: none;
+    }
+    
+    #header .logo img {
+      height: 5rem;
+    }
+    
+    #header nav ul {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center;
+      -ms-flex-pack: distribute;
+          justify-content: space-around;
+      list-style: none;
+    }
+    
+    #header nav ul li {
+      margin-right: 4rem;
+    }
+    
+    #header nav ul li a {
+      color: #fff;
+      font-size: 2rem;
+      text-decoration: none;
+    }
+    
+    #header nav ul li a:hover {
+      color: #f82249;
+      text-decoration: none;
+    }
+    
+    #header {
+      background: #333;
+      height: 6rem;
+      -webkit-box-shadow: .2rem 0 .5rem #000;
+              box-shadow: .2rem 0 .5rem #000;
+    }
+    
+    #header nav ul {
+      margin: 0;
+    }
+  </style>
+  
+  <style>
+    /* for form styling*/
+    * { 
+  margin: 0; 
+  padding: 0;  
+  }
+  
+  body { 
+  background-image: url(/images/bg-hotel3.jpg);
+  background-position: center; 
+  background-size: cover; 
+  font-family: san-serif;
+  }
+  
+  .loginlabel { 
+  width: 800px; 
+  background-color:rgb(0,0,0,0.8);
+  margin: auto;
+  color: #ffffff;
+  padding: 90px 0px 10px 0px; 
+  text-align: center;
+  border-radius: 15px 15px 0px 0px;
+  }
+  
+  .main { 
+  background-color: rgb(0,0,0,0.6);
+  width: 800px; 
+  margin: auto;
+  }
+  
+  form { 
+  padding:10px; 
+  }
+  
+  
+  .labels { 
+  margin-left: 25px;
+  margin-top: 30px; 
+  width: 125px;
+  color: white;
+  font-size: 18px;
+  font-weight: 700;
+  }
+  
+  .inputfield{ 
+  position: relative;
+  left: 200px;
+  top: -37px;
+  line-height: 40px;
+  width: 480px;
+  border-radius: 6px;
+  padding: 0 22px; 
+  font-size: 16px;
+  color: #555;
+  }
+  
+  
+  .button { 
+    position: center;
+  /* background-color: #3BAF9F;*/
+    background-color: darkred;
+  display: block;
+  margin: 30px 20px 20px 220px;
+  text-align: center;
+  font-size: 20px; 
+  border-radius: 12px;
+  border: 2px solid #366473;
+  padding: 14px 110px;
+  outline: none;
+  color: black;
+  cursor: pointer;
+  transition: 0.25px;
+  }
+  
+  .button:hover { 
+  background-color: #ddd;
+  color: black;
+  }
+  .dropbtn {
+  background-color: transparent;
+  color: white;
+  cursor: pointer;
+  }
+          
+  .dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #110f0f;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  }
+          
+  .dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  display: block;
+  }
+          
+  .dropdown-content a:hover {
+  background-color: #f1f1f1
+  }
+          
+  .dropdown:hover .dropdown-content {
+  display: block;
+  }
+          
+  .dropdown:hover .dropbtn {
+  background-color:transparent;
+  }
+  </style>
+  <script>
+  
+      $(document).ready(function(){
+      
+          $('.fa-hamburger').click(function(){
+              $(this).toggleClass('fa-times');
+              $('nav').toggleClass('nav-toggle');
+          });
+      
+          $('nav ul li a').click(function(){
+              $('.fa-hamburger').removeClass('fa-times');
+              $('nav').removeClass('nav-toggle');
+          });
+  
+          
+      });
+      
+      </script>
+      <!DOCTYPE html>
+      <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Dashboard</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+          <style>
+              *{
+              margin:0px;
+              padding:0px;
+          }
+          /*Header Styling*/
+          
+          #top{
+              color:rgb(245, 10, 10);
+              text-align:center;
+              font-size:46px;
+              font-family: 'Ubuntu Mono', monospace;
+          }
+          #top1{
+              text-align:center;
+              color:black;
+              font-size:21px;
+              font-family: 'Ubuntu Mono', monospace;
+          }
+          
+          /* website background image designing */
+          #container1{
+              position: relative;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              width: 100vw;
+              height:63vh;
+          }
+          
+          /*Setting the background image using before pseudo selector*/ 
+          #container1::before{
+              content:'';
+              background: url("./1.jpg") no-repeat center center/cover;
+              width: 100vw;
+              height:59vh;
+              position: absolute;
+              top:0px;
+              left: 0px;
+              font-family: 'Ubuntu Mono', monospace;
+              margin-right:45px;
+              font-weight: bold;
+              z-index: -1;
+              opacity: 0.89;
+              border: 2px solid black;
+              border-bottom-left-radius: 100px;
+          }
+          
+          #row1{
+             color: black;
+              font-weight:bold;
+              font-size: 2rem;
+              text-align: center;
+              margin-top: 35px;
+          }
+          /*Button Styling*/
+          .btn{
+              margin-top:15px;
+              border: 3px solid white;
+              border-radius:15px;
+              background-color:yellow;
+              font-size:20px;
+              font-weight: bold;
+              font-family: 'Ubuntu Mono', monospace;
+          }
+          .btn:hover{
+              cursor: pointer;
+              background-color: red;
+          }
+          
+          
+          #container3{
+              display: flex;
+              justify-content: space-evenly;
+          }
+          #row2{
+              width:24vw;
+              height:21vh;
+              box-shadow: 2px 7px 16px 19px;
+               margin-top:51px;
+               margin-bottom: 51px;
+               display: flex;
+              justify-content: center;
+               align-items: flex-end;
+               position: relative;
+               margin-right: 38px;
+               border-radius: 40px;
+          }
+          #row2::before{
+              content: '';
+              background: url('2.jpeg') no-repeat center center/cover;
+              position: absolute;
+              top: 0px;
+              left:0px;
+              width: 24vw;
+              height:21vh;
+              z-index: -1;
+              border-radius: 40px;
+          }
+          #row3{
+              position: relative;
+              width: 24vw;
+              height:21vh;
+              display: flex;
+              justify-content: center;
+               align-items: flex-end;
+               box-shadow: 2px 7px 16px 19px;
+               margin-top:51px;
+               margin-bottom: 51px;
+               
+               margin-left: 38px;
+               border-radius: 40px;
+          }
+          #row3::before{
+              content: '';
+              background: url('3.jpeg') no-repeat center center/cover;
+              position: absolute;
+              top:0px;
+              left:0px;
+              width: 24vw;
+              height:21vh;
+              z-index: -1;
+              border-radius: 40px;
+          }
+          
+          #top3{
+              text-align: center;
+              color:red;
+              font-family: 'Ubuntu Mono', monospace;
+          }
+          #container4{
+              display: grid;
+              grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+              margin: 41px;
+          }  
+          #row4{
+              width: 29vw;
+              height: 360px;
+              border: 2px solid black;
+              background:url('a1.jpeg') no-repeat center center/cover; 
+              display: flex;
+              justify-content:center;
+              align-items:flex-end;
+              border-radius: 15px;
+          }
+          #row5{
+              width: 29vw;
+              height: 360px;
+              border: 2px solid black;
+              background:url('a2.jpeg') no-repeat center center/cover;
+              display: flex;
+              justify-content:center;
+              align-items:flex-end;
+              border-radius: 15px;
+          }
+          #row6{
+              width: 30vw;
+              height: 360px;
+              border: 2px solid black;
+              background:url('a3.jpeg') no-repeat center center/cover;
+              display: flex;
+              justify-content:center;
+              align-items:flex-end;
+              border-radius: 15px;
+          }
+          /*Designing the footer*/
+          footer{
+              text-align: center;
+          }
+          /*Designing of Contact Us*/
+          #ContactUs{
+              width:100vw;
+              height:100vh;
+              display:flex;
+              flex-direction: column;
+              align-items: center;
+              background-color: gray;
+          }
+          .form-shape input, .form-shape select, .form-shape textarea{
+             width: 92%;
+             padding: 0.5rem;
+          }
+          /*Changing the color of placeholder*/
+          ::placeholder{                  
+              color:gray;
+          }
+          /*Making the webpage responsive using media quries*/
+          @media only screen and (max-width:1131px){
+              #row4{
+                  width: 42vw;
+              }
+              #row5{
+                  width:45vw;
+              }
+              #row6{
+                  margin-top: 20px;
+                  width:90vw;
+              }
+          }
+          @media only screen and (min-width:600px) and (max-width:781px)
+          {
+              #row4{
+                  width:84vw;
+                  margin: auto;
+                  margin-left: 22px;
+              }
+              #row5{
+                  
+                  width:84vw;
+                  margin: auto;
+                  margin-top: 20px;
+                  margin-left: 22px;
+              }
+              #row6{
+                  width:84vw;
+                  margin: auto;
+                  margin-top: 20px;
+                  margin-left: 22px;
+              }
+          }
+          @media only screen and (max-width:600px){
+              #row4{
+                  width:78vw;
+                  margin: auto;
+                  margin-left: 3px;
+              }
+              #row5{
+                  
+                  width:78vw;
+                  margin: auto;
+                  margin-top: 20px;
+                  margin-left: 3px;
+              }
+              #row6{
+                  width:78vw;
+                  margin: auto;
+                  margin-top: 20px;
+                  margin-left: 3px;
+              }
+          }
+          @media only screen and (min-height:1000px){
+              #navbar{
+                  height:10vh;
+              }
+              #container1::before{
+                  height:39vh;
+              }
+              #container1{
+                  height:44vh
+              }
+          }
+          @media (min-width: 34em) {
+          .card-columns {
+              -webkit-column-count: 2;
+              -moz-column-count: 2;
+              column-count: 2;
+          }
+      }
+      
+      @media (min-width: 48em) {
+          .card-columns {
+              -webkit-column-count: 3;
+              -moz-column-count: 3;
+              column-count: 3;
+          }
+      }
+      
+      @media (min-width: 62em) {
+          .card-columns {
+              -webkit-column-count: 3;
+              -moz-column-count: 3;
+              column-count: 3;
+          }
+      }
+      
+      @media (min-width: 75em) {
+          .card-columns {
+              -webkit-column-count: 3;
+              -moz-column-count: 3;
+              column-count: 3;
+          }
+      }
+      
+          </style>
+          <style>
+              body{
+        font-family: 'Nunito', sans-serif;
+        padding: 50px;
+      }
+      .card{
+          border-radius: 4px;
+          background: black;
+          box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
+            transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
+        padding: 14px 80px 18px 36px;
+        cursor: pointer;
+      }
+      
+      .card:hover{
+           transform: scale(1.05);
+        box-shadow: 0 10px 20px white, 0 4px 8px rgba(0,0,0,.06);
+      }
+      
+      .card h3{
+        font-weight: 600;
+      }
+      
+      .card img{
+        position: absolute;
+        top: 20px;
+        right: 15px;
+        max-height: 120px;
+      }
+      
+      @media(max-width: 990px){
+        .card{
+          margin: 50px;
+        }
+      } 
+      .row {
+         display: flex;
+         flex-wrap: wrap;
+      }
+      
+      .row > div[class*='col-'] {
+        display: flex;
+      }
+      body{
+          background: url("../images/class.jpg") no-repeat;
+      }
+      
+          </style>
+      </head>
+      
+      <body style = "background:url(../images/class.jpg); background-size: cover;">
+      <!----	<header>
+              <h1 id="top">Online</h1>
+              <h1 id="top1">FoodShop</h1>
+          </header>-->
+
+          <!-- header section ends -->
+          <hr>
+          <!---
+          <div id="container1">
+              <div id="row1">
+                  Welcome to Online FoodShop
+              </div>
+              <button class="btn">ORDER NOW</button>
+              <div id="container3">
+                  <div id="row2">
+                      <button class="btn">Restraunts</button>
+                  </div>
+                  <div id="row3">
+                      <button class="btn">Preious orders</button>
+                  </div>
+              </div>
+          </div>
+      --->
+      <br>
+      <br>
+      <br>
+          <div>
+            <% for(var i = 0 ; i < posts.length ; i++){ %>
+              <br>
+              <div class="col-sm-3" style="padding-left: 300;" >
+                  <div class="card my-3" style=" text-align:center; background-color: rgb(217, 215, 226); width: 800; height: 400; padding:auto">
+                      <div class="card-body" >
+
+                      <h4 class="card-text" style="text-align: left; font-size: large; font-weight: 1000;">
+                      @<%= users[i].name %>
+                      </h4>
+                      <br>
+                      <br>
+                      <br>
+                      <br>
+                      <br>
+                      <br>
+                      <h4 class="card-text" style="text-align: left; font-size:x-large; font-weight:800;">
+                      <%= posts[i].title %>
+                      </h4>
+                      <br>
+                      <br>
+                      <br>
+                      <br>
+                      <h4 class="card-text" style="text-align: left; font-size: large;">
+                      <%= posts[i].body %>
+                      </h4>
+                      </div>
+                      
+                  </div>
+              </div>
+              <% } %>
+              
+          </div>
+  
+            <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.css" rel="stylesheet" />
+      
+            <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+           
+      </body>
+      
+      </html>

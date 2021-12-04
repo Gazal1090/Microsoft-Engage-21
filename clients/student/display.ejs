@@ -1,0 +1,66 @@
+<head>
+    <link rel="stylesheet" href="../scss/seat-selection.component.scss">
+</head>    
+    <body style = "background:url(../images/class.jpg); background-size: cover;">>
+    <%- include('../partials/classnav') %>
+
+
+<div class="body">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <div class
+    ="container">
+        <div class="w3ls-reg">
+            <!-- input fields -->
+            <!-- //input fields -->
+            <!-- seat availabilty list -->
+            <!-- seat availabilty list -->
+            <!-- seat layout -->
+            <div class="seatStructure txt-center"   >
+                <div class="screen">
+                    <h2 class="wthree">Board this way</h2>
+        </div>
+                <table id="seatsBlock">
+                    <p id="notification"></p>
+                    <% for(var i = 0 ; i < 5 ; i++){ %>
+                        <tr>
+                    <%    for(var j = 0 ; j < 10 ; j++){
+                            if( classes.seats[i*10+j == '1']){ %>
+                                <td><button class="seats"><%= i*10+j %></button> </td>
+                            <% }
+                                
+                            else{ %>
+                                <td><button style="background: red" class="seats"><%= i*10+j %></button> </td>
+                           <% } %>
+                            
+                        <% } %>
+                    </tr>
+                    <% } %>
+              
+                </table>
+    </div>
+    <br>
+    <h1 style= "color: rgb(20, 20, 20); font-size: 3em;">Available seats</h1>
+    <form action= "" method = "post">
+        <br><br>
+        <div class="action" >
+        <button class="wthree" style="width: 200px; align-self:left background-color= gray" type="Submit"> Submit your seat </button>
+        <button class="wthree" style="width: 200px; align-self:left background-color= gray"  onclick="href='/studentHome'"> Cancel</button>
+        </div>
+     </form> 
+</div>
+
+<script>
+function getSelectValue()
+        {
+            var selectedValue = document.getElementById("list").value;
+            console.log(selectedValue);
+        }
+        getSelectValue();
+
+    </script>
+</body>

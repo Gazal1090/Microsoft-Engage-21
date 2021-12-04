@@ -1,0 +1,69 @@
+<head>
+    <link rel="stylesheet" href="../scss/seat-selection.component.scss">
+</head>    
+    <body style = "background:url(../images/class.jpg); background-size: cover;">>
+    <%- include('../partials/classproffnav') %>
+
+
+<div class="body">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <div class
+    ="container">
+        <div class="w3ls-reg">
+            <!-- input fields -->
+            <!-- //input fields -->
+            <!-- seat availabilty list -->
+            <!-- seat availabilty list -->
+            <!-- seat layout -->
+            <div style = "
+                background-color: rgb(80, 77, 77);
+                width: 30px;
+                height: 30px;
+              "> </div><br><h3 style="font-size:x-large; font-style:bolder; font-family:Georgia, 'Times New Roman', Times, serif"> Booked seats</h3>
+            <div class="seatStructure txt-center"   >
+                <div class="screen">
+                    <h2 class="wthree">Board this way</h2>
+        </div>
+                <table id="seatsBlock">
+                    <p id="notification"></p>
+                    <% for(var i = 0 ; i < 5 ; i++){ %>
+                        <tr>
+                    <%    for(var j = 0 ; j < 10 ; j++){
+                            if( classes.seats[i*10+j ] == '1'){ %>
+                                <td><button class="seats"><%= i*10+j+1 %></button> </td>
+                            <% }
+                                
+                            else{ %>
+                                <td><button style="background: rgb(80, 77, 77);" class="seats"><%= i*10+j+1 %></button> </td>
+                           <% } %>
+                            
+                        <% } %>
+                    </tr>
+                    <% } %>
+              
+                </table>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <button class="wthree" style="width: 300px; align-self:left "  onclick = "location.href ='./booking/<%= classes.className %>'">Details</button>
+    </div>
+</div>
+
+<script>
+function getSelectValue()
+        {
+            var selectedValue = document.getElementById("list").value;
+            console.log(selectedValue);
+        }
+        getSelectValue();
+
+    </script>
+</body>

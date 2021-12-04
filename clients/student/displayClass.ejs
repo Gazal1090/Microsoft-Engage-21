@@ -1,0 +1,131 @@
+<head>
+    <link rel="stylesheet" href="../scss/seat-selection.component.scss">
+</head>    
+    <body style = "background:url(../images/class.jpg); background-size: cover;">>
+    <%- include('../partials/classnav') %>
+
+
+<div class="body">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class
+    ="container">
+        <div class="w3ls-reg">
+            <!-- input fields -->
+            <!-- //input fields -->
+            <!-- seat availabilty list -->
+            <!-- seat availabilty list -->
+            <!-- seat layout -->
+                <% if( seat == "0"){ %>
+                <div style = "
+                background-color: white;
+                width: 30px;
+                height: 30px;
+              "> </div><br>  <h3 style="font-size:large; font-style:bold; font-family:Georgia, 'Times New Roman', Times, serif"> Available seats</h3> <% } %>
+              
+                <div class="seatStructure txt-center"   ><div class="screen">
+                    <h2 class="wthree">Board this way</h2>
+        </div>
+        <table id="seatsBlock">
+            <p id="notification"></p>
+
+            <% if( seat == "-1") { 
+                for(var i = 0 ; i < 5 ; i++){ %>
+                    <tr>
+                <%    for(var j = 0 ; j < 10 ; j++){ %>
+
+                        <td><button style="background: white" class="seats"><%= i*10+j+1 %></button> </td>
+                        
+                    <% } %>
+                </tr>
+                <% } %>
+            <% } %>
+
+            <% if( seat == "0"){ %>
+                <% for(var i = 0 ; i < 5 ; i++){ %>
+                <tr>
+            <%    for(var j = 0 ; j < 10 ; j++){
+                    if( classes.seats[i*10+j ] == '1'){ %>
+                        <td><button style="background: white" class="seats"><%= i*10+j+1 %></button> </td>
+                    <% }
+                        
+                    else{ %>
+                        <td><button style="background: rgb(161, 159, 159)" class="seats"><%= i*10+j+1 %></button> </td>
+                   <% } %>
+                    
+                <% } %>
+            </tr>
+            <% } %>
+            
+            <% } %>
+
+            <% if( seat > "0"){ %>
+                <% for(var i = 0 ; i < 5 ; i++){ %>
+                <tr>
+            <%    for(var j = 0 ; j < 10 ; j++){
+                    if( i*10+j+1  == seat - '0'){ %>
+                        <td><button style="background: rgb(161, 159, 159)" class="seats"><%= i*10+j+1 %></button> </td>
+                    <% }
+                        
+                    else{ %>
+                        <td><button style="background: white" class="seats"><%= i*10+j+1 %></button> </td>
+                   <% } %>
+                    
+                <% } %>
+            </tr>
+            <% } %>
+            
+            <% } %>
+        </table>
+    </div>
+    <% if( seat == "0"){ %>
+
+        <h1 style= "color: rgb(20, 20, 20); font-size: 3em;">Select seat </h1>
+        <form action= "./postdisplayClass/<%= classes.className %>" method = "post">
+            <div>
+                <table>
+                <tr>
+                <td><select style="width: 200px; align-self:center" name = "seat" id="list" onchange="getSelectValue();">>
+                <% for(var i = 0 ; i < classes.seats.length ; i++){ %> 
+                    <% if(classes.seats[i] == '1' ) {%>
+                        <option  value = <%= i+1 %>><%= i+1 %></option>
+                    <% } %>
+                <% } %>
+            </select>
+        </td>
+            <td style="padding-left: 10em;">
+            <input type="checkbox" name="mode" value="online" style="margin-top: 1em; "> </td> <td style= "color: black; font-size: 20px; font-style: rgb(3, 3, 3); font-weight: 100;  margin-top: 1em; padding-left: 0.5em; margin-top: 2; width:500px; text-align: left; font-weight: bold;"><h4 >Attend Online </h4></td></tr></table>
+            </div>
+        <br><br>
+        <div class="action" >
+        <button class="wthree" style="width: 200px; align-self:left background-color= gray" type="Submit"> Submit </button>
+        <button class="wthree" style="width: 200px; align-self:left background-color= gray"  onclick="href='/studentHome'"> Cancel</button>
+        </div>
+     </form> 
+     <% } %>
+
+     <% if( seat == "-1"){ %>
+        <br><h1 style= "color: rgb(20, 20, 20); font-size: 3em;">You choosed to attend the class online :) </h1>
+    <% } %>
+    <% if( seat > "0"){ %>
+        <br><h1 style= "color: rgb(20, 20, 20); font-size: 3em;">You choosed seat Number <span style="color: rgb(151, 32, 32); font-weight: bolder;" ><%= seat %> </span></h1>
+    <% } %>
+</div> 
+<script>
+function getSelectValue()
+        {
+            var selectedValue = document.getElementById("list").value;
+            console.log(selectedValue);
+        }
+        getSelectValue();
+
+    </script>
+</body>
