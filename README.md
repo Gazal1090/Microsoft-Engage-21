@@ -43,7 +43,7 @@ npm start
 
 The *console* logs the following if the app is running properly
 bash
-Server started on port 3000!!!
+Server started on port 3030!!!
 
 
 
@@ -63,3 +63,24 @@ Server started on port 3000!!!
 -   Students can also choose to attend the class online.
 -   Each student can book only one seat in a class.
 -   Change password functionality is implemented for both students and teachers.
+
+
+Some images of the webApp
+
+### Home Page
+![image](https://user-images.githubusercontent.com/55214244/144701742-006d65bb-abb4-47d3-9163-10cf6ab60bb9.png)
+
+### Student Dashboard
+![image](https://user-images.githubusercontent.com/55214244/144701771-16ea3ae6-9bc5-4bd8-8895-bbd457bc2fa4.png)
+
+### Professor Dashboard
+![image](https://user-images.githubusercontent.com/55214244/144701792-39f92fc3-fe60-4cbd-bf47-b923c85a1620.png)
+
+### Class Page
+![image](https://user-images.githubusercontent.com/55214244/144701808-be7beea2-7500-451a-9612-c70d21eb3b34.png)
+
+### Erollment Request for the Class on the Proffesor side
+![image](https://user-images.githubusercontent.com/55214244/144701873-406acc08-7f3d-4e5b-a529-689e19a09670.png)
+
+### Seat booking page for the students
+
